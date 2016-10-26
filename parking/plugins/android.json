@@ -7,24 +7,31 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.myapp983181"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.cordova.myapp983181"
-        },
-        "cordova-plugin-inappbrowser": {
+        "cordova-plugin-datepicker": {
             "PACKAGE_NAME": "io.cordova.myapp983181"
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "io.cordova.myapp983181"
         },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "io.cordova.myapp983181"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.cordova.myapp983181"
+        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.cordova.myapp983181"
         },
-        "cordova-plugin-datepicker": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.myapp983181"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.cordova.myapp983181"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "io.cordova.myapp983181"
+        }
+    }
 }
