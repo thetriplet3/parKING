@@ -53,9 +53,10 @@
     <div class="list list-inset">
         <h3 class="title ion-arrow-swap">   Check In/ Check Out</h3>
     </div>
-    <div class="list list-inset">
+    <!--<div class="list list-inset">
         <input type="hidden" id="QRcodebox">
-    </div>
+    </div>-->
+    <input type="text" id="barcode">
     <div class="list list-inset">
     </div>
     <div class="list list-inset">
@@ -83,14 +84,18 @@
     <div class="list list-inset">
     </div>
     <div class="list list-inset">
-        <button class="button button-block icon-right ion-arrow-right-c button-positive" id="CheckInBtn" onclick="checkIn()">
-            Check In
-        </button>
+        <a target="_blank" href="javascript:scan();" style="text-decoration: none">
+            <button class="button button-block icon-right ion-arrow-right-c button-positive" id="CheckInBtn" onclick="checkIn()">
+                Check In
+            </button>
+        </a>
     </div>
     <div class="list list-inset">
-        <button class="button button-block icon-right ion-arrow-left-c button-positive" id="CheckOutBtn" onclick="checkOut()">
-            Check Out
-        </button>
+        <a target="_blank" href="javascript:scan();" style="text-decoration: none">
+            <button class="button button-block icon-right ion-arrow-left-c button-positive" id="CheckOutBtn" onclick="checkOut()">
+                Check Out
+            </button>
+        </a>
     </div>
     <div class="list list-inset">
         <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="GoBack()">
@@ -102,5 +107,40 @@
     <script src="bower_components/ionic/js/ionic.bundle.js"></script>
     <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+            function scan()
+            {
+                cordova.plugins.barcodeScanner.scan(
+
+                    function (result) {
+                        document.getElementById("scanned").value = result.text;
+                        if(!result.cancelled)
+                        {
+                            if(result.format == "QR_CODE")
+                            {
+                                navigator.notification.prompt("Please enter name of data",  function(input){
+                                    var name = input.input1;
+                                    var value = result.text;
+
+                                    var data = localStorage.getItem("LocalData");
+                                    console.log(data);
+                                    data = JSON.parse(data);
+                                    data[data.length] = [name, value];
+
+                                    localStorage.setItem("LocalData", JSON.stringify(data));
+
+                                    alert("Done");
+                                });
+                            }
+                        }
+                    },
+                    function (error) {
+                        alert("Scanning failed: " + error);
+                    }
+               );
+            }
+    </script>
 </body>
 </html>
