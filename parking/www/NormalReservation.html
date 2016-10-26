@@ -71,10 +71,10 @@
     <div class="tabs-striped tabs-top tabs-color-positive">
         <div class="tabs">
             <a class="tab-item active" href="NormalReservation.html">
-                <i>Normal</i>
+                <i>Slot Details</i>
             </a>
             <a class="tab-item" href="FutureReservation.html">
-                <i>Reserved</i>
+                <i>Reservation</i>
             </a>
         </div>
     </div>
@@ -86,21 +86,41 @@
     </div>
     <div class="list list-inset">
     </div>
+    <div class="list list-inset" id="updtAvailSlots">
         <div class="list list-inset">
-            <button class="button button-block icon-right ion-checkmark-circled button-positive" id="confirmBtn" onclick="validateForm()">
-                Confirm
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <span class="input-label"></span>
+            </label>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Available Slots</span>
+                <span class="input-label"></span>
+            </label>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Description</span>
+                <span class="input-label"></span>
+            </label>
+        </div>
+        </div>
+        <div class="list list-inset">
+            <button class="button button-block icon-right ion-checkmark-circled button-positive" id="confirmBtn" >
+                Back
             </button>
         </div>
-    <div class="tabs-striped tabs-color-dark">
-        <div class="tabs">
-            <a class="tab-item">
-                <i class="icon ion-navicon-round" onclick="goToMenu()"></i>
-            </a>
-            <a class="tab-item">
-                <i class="icon ion-home" onclick="goToHome()"></i>
-            </a>
+        <div class="tabs-striped tabs-color-dark">
+            <div class="tabs">
+                <a class="tab-item">
+                    <i class="icon ion-navicon-round" onclick="goToMenu()"></i>
+                </a>
+                <a class="tab-item">
+                    <i class="icon ion-home" onclick="goToHome()"></i>
+                </a>
+            </div>
         </div>
-    </div>
 
 </body>
 </html>

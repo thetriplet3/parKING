@@ -40,7 +40,7 @@
 
     <script type="text/javascript" charset="utf-8">
 
-        function validateForm() {/*
+        function validateForm() {
                 var x = document.getElementById("fname").value;
                    if (x == null || x == "" ) {
                        alert("First Name must be filled out");
@@ -62,6 +62,10 @@
                    var x = document.getElementById("nic").value;
                    if (x == null || x == "") {
                        alert("NIC must be filled out");
+                       return false;
+                   }
+                   if (/^[0-9]{9}[vVxX]$/.test(x) == false) {
+                       alert("Nic number is not valid");
                        return false;
                    }
                    var x = document.getElementById("mob").value;
@@ -97,7 +101,7 @@
                    if ((/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,15}$/.test(x)) == false) {
                        alert("enter a password which has atleast 5 characters and a special and numeric")
                        return true;
-                   }*/
+                   }
            // document.cookie = "selected=john"
 
             document.cookie1 = document.getElementById("email").value;

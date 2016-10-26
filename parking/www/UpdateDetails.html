@@ -42,6 +42,14 @@
         function GoBack() {
             window.location = "OwnerHome.html";
         }
+        function UpdateDetails() {
+            var x = document.getElementById("UpdateTextBox").value;
+            if (x == null || x == "") {
+                alert("UpdateTextBox should be filled out");
+                return false;
+            }
+            window.location = "NormalReservation.html";
+        }
     </script>
 </head>
 <body>

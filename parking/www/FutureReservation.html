@@ -54,25 +54,20 @@
     </style>
 
     <script>
-        /*function validateForm() {
-            var x = document.getElementById("date").value;
+        function validateForm() {
+            var x = document.getElementById("dateRes").value;
             if (x == null || x == "") {
-                ("Date must be filled out");
+                alert("Date must be filled out");
                 return false;
             }
-            var x = document.getElementById("entime").value;
+            var x = document.getElementById("EnterTime").value;
             if (x == null || x == "") {
-                messa("Entering time must be filled out");
+                alert("Entering time must be filled out");
                 return false;
             }
-            var x = document.getElementById("deptime").value;
+            var x = document.getElementById("DepartTime").value;
             if (x == null || x == "") {
-                window.messagebox("Departuring time must be filled out");
-                return false;
-            }
-            var x = document.getElementById("nof").value;
-            if (x == null || x == "") {
-                window.messagebox("Theire are no slots Available ");
+                alert("Departuring time must be filled out");
                 return false;
             }
         }
@@ -90,7 +85,7 @@
                 });
             };
 
-        })*/
+        })
 
         function goToHome() {
             window.location = "OwnerHome.html";
@@ -108,10 +103,10 @@
     <div class="tabs-striped tabs-top tabs-color-positive">
         <div class="tabs">
             <a class="tab-item" href="NormalReservation.html">
-                <i>Normal</i>
+                <i>Slot Details</i>
             </a>
             <a class="tab-item active" href="FutureReservation.html">
-                <i>Reserved</i>
+                <i>Reservation</i>
             </a>
         </div>
     </div>
@@ -138,12 +133,6 @@
             <label class="item item-input">
                 <span class="input-label">Departing Time (Aprox)</span>
                 <input type="text" placeholder="HH:MM" id="DepartTime">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Available Slots</span>
-                <input type="text" placeholder="00" id="AvailSlots">
             </label>
         </div>
     </div>

@@ -41,6 +41,22 @@
         function GoBack() {
             window.location = "OwnerHome.html";
         }
+        function UpdateAvailSlots() {
+            var x = document.getElementById("aveslots").value;
+            if (x == null || x == "") {
+                alert("Availabel slots should be filled out");
+                return false;
+            }
+            if (isNaN(x)) {
+                alert("available slots should be digits");
+                return false;
+            }
+            var x = document.getElementById("dat").value;
+            if (x == null || x == "") {
+                alert("date should be filled out");
+                return false;
+            }
+                  }
 
 
     </script>
@@ -59,13 +75,13 @@
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Available Slots</span>
-                <input type="text" placeholder="00">
+                <input type="text" placeholder="00" id="aveslots">
             </label>
         </div>
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Date</span>
-                <input type="date">
+                <input type="date" id="dat">
             </label>
         </div>
     </div>

@@ -48,6 +48,35 @@
 
     <script>
         function OwnHome() {
+            var x = document.getElementById("name").value;
+            if (x == null || x == "") {
+                alert("name should be filled out");
+                return false;
+            }
+            if ((/^[A-Za-z\s]+$/.test(x) == false)) {
+                alert(" name Can only contain A-Z");
+                return false;
+            }
+            var x = document.getElementById("numslot").value;
+            if (x == null || x == "") {
+                alert("number of slots should be filled out");
+                return false;
+            }
+            if (isNaN(x)) {
+                alert("number of slots should be digits");
+                return false;
+            }
+            var x = document.getElementById("add").value;
+            if (x == null || x == "") {
+                alert("Address should be filled out");
+                return false;
+            }
+            var x = document.getElementById("desc").value;
+            if (x == null || x == "") {
+                alert("description should be filled out");
+                return false;
+            }
+
             window.location = "OwnerHome.html";
 
         }
@@ -66,25 +95,25 @@
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Name</span>
-                <input type="text" placeholder="JohnSmith Parking">
+                <input type="text" placeholder="JohnSmith Parking" id="name">
             </label>
         </div>
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Number of Slots</span>
-                <input type="text" placeholder="00">
+                <input type="text" placeholder="00" id="numslot">
             </label>
         </div>
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Address</span>
-                <input type="text" placeholder="No.1,Park Rd,Colombo 5">
+                <input type="text" placeholder="No.1,Park Rd,Colombo 5" id="add">
             </label>
         </div>
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Description</span>
-                <input type="text" placeholder="Description goes here...">
+                <input type="text" placeholder="Description goes here..." id="desc">
             </label>
         </div>
     </div>
