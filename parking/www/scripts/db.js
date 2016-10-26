@@ -33,19 +33,20 @@ function handleData(data) {
 
 function setAttr(div) {
     var attr = "";
-    $('#' + div).find("input ").each(function (index) {
+    var col = "";
+    $('#' + div).find("input, select").each(function (index) {
         var val = $(this).val();
         console.log("Val :- " + val);
         if (val == null || val == "" || val == undefined) {
             //val = "-X0xd";
         }
         else {
-            var col = $(this).attr('id');
+            col = $(this).attr('id');
+            attr = attr + col + '<>' + val + '|';
         }
-        
-        attr = attr + col + '<>' + val + '|'
     });
     attr = attr.substring(0, attr.length - 1);
+    console.log(attr);
     return attr;
 }
 
