@@ -98,6 +98,10 @@
                        alert("enter a password which has atleast 5 characters and a special and numeric")
                        return true;
                    }*/
+           // document.cookie = "selected=john"
+
+            
+            
             window.location = "paymentInfo.html";
         }
 
@@ -107,6 +111,7 @@
     </script>
 </head>
 <body>
+    <form action="paymentInfo.html" id="GET">
     <div class="list list-inset">
         <h3 class="title ion-person-add">   Personal Details</h3>
     </div>
@@ -168,6 +173,7 @@
                 Back
             </button>
         </div>
+        </form>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
