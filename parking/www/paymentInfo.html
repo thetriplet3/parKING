@@ -57,8 +57,13 @@
 
         function RegisterParkLot() {
           //  var cookie = document.cookie;
-          //  alert(cookie);
-            window.location = "registerParkLot.html";
+            //  alert(cookie);
+            var cookie = document.cookie;
+            var selected = localStorage.getItem('selected');
+            alert(selected);
+
+            
+        
         }
 
         function GoBack() {

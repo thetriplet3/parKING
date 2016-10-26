@@ -36,7 +36,7 @@
         .item:hover {
             border: 1px solid #387ef5;
         }
-    </style>
+    </style>    
 
     <script type="text/javascript" charset="utf-8">
 
@@ -104,8 +104,13 @@
                    }
            // document.cookie = "selected=john"
 
-            document.cookie1 = document.getElementById("email").value;
+         //   document.cookie2 = document.getElementById("utype").value;
 
+            document.cookie = document.getElementById("email").value;
+
+            var xy = document.getElementById("utype");
+           
+           
             
             window.location = "paymentInfo.html";
         }
@@ -159,7 +164,7 @@
         </div>
         <div class="list list-inset">
             <label class="item item-input item-select">
-                <div class="input-label" id="">
+                <div class="input-label" id="utype">
                     User Type
                 </div>
                 <select>
