@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
+    <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <title>ForgotPasswordScreen</title>
+
+    <style>
+        h3{
+            text-align: center;
+        }
+
+        .input-label {
+            width: 30px;
+        }
+
+        #sendVerifyCodeBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        #resetPwdBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        #BackBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        .item:hover {
+            border: 1px solid #387ef5;
+        }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, true);
+        }
+
+        function onDeviceReady() {
+            // navigator.notification.alert("PhoneGap is working");
+        }
+
+        function GoBack() {
+            window.location = "index.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="list list-inset">
+        <h3>Forgotten your password?</h3>
+    </div>
+    <div class="list list-inset" id="forgotPwd">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label ion-at"></span>
+                <input type="text" placeholder="Email address">
+            </label>
+        </div>
+        <div class="list list-inset">
+            <button class="button button-block icon-right ion-email-unread button-positive" id="sendVerifyCodeBtn" onclick="sendVerifyCodeBtn()">
+                Send Verification Code
+            </button>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label ion-key"></span>
+                <input type="password" placeholder="Verification Code">
+            </label>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label ion-unlocked"></span>
+                <input type="password" placeholder="New Password">
+            </label>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label ion-locked"></span>
+                <input type="password" placeholder="Confirm New Password">
+            </label>
+        </div>
+    </div>
+        <div class="list list-inset">
+            <button class="button button-block icon-right ion-checkmark-circled button-positive" id="resetPwdBtn" onclick="ResetPassword()">
+                Reset Password
+            </button>
+        </div>
+        <div class="list list-inset">
+        </div>
+        <div class="list list-inset">
+        </div>
+        <div class="list list-inset">
+            <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="GoBack()">
+                Back
+            </button>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+        <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

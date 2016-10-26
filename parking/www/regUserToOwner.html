@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
+    <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <title>RegularUserToOwnerHomeScreen</title>
+
+    <style>
+        .item-input {
+            height: 35px;
+            border: 1px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+        }
+
+        #SearchBtn {
+            width: 30px;
+            height: 50px;
+        }
+
+        #SearchBtn:hover {
+            border: transparent;
+            background-color: #444;
+            color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        .item-input:hover {
+            border: 2px solid #444;
+            color: #444;
+        }
+    </style>
+
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div class="bar bar-header">
+        <div class="tabs-striped tabs-top tabs-color-positive">
+            <div class="tabs">
+                <a class="tab-item" href="OwnerHome.html">
+                    <i>Owner</i>
+                </a>
+                <a class="tab-item active" href="regUserToOwner.html">
+                    <i>Regular User</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+        <label class="item item-input">
+            <input type="text" placeholder="Search" id="SearchBox">
+            <button class="button button-block icon-right ion-search" id="SearchBtn" onclick="Search()"></button>
+        </label>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="../Content/SignInStyle.css">
+    <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <title>CheckInCheckOutScreen</title>
+
+    <style>
+        .title{
+            text-align: center;
+        }
+        
+        #CheckInBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        #CheckOutBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        #BackBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function GoBack() {
+            window.location = "OwnerHome.html";
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="list list-inset">
+        <h3 class="title ion-arrow-swap">   Check In/ Check Out</h3>
+    </div>
+    <div class="list list-inset">
+        <input type="hidden" id="QRcodebox">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-arrow-right-c button-positive" id="CheckInBtn" onclick="checkIn()">
+            Check In
+        </button>
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-arrow-left-c button-positive" id="CheckOutBtn" onclick="checkOut()">
+            Check Out
+        </button>
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="GoBack()">
+            Back
+        </button>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

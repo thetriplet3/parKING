@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
+    <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <title>MenuScreen</title>
+
+    <style>
+        .item-input{
+            height: 30px;
+        }
+
+        #HistoryBtn:hover {
+            border: 3px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+            font-weight: bold;
+        }
+
+        #SettingsBtn:hover {
+            border: 3px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+            font-weight: bold;
+        }
+
+        #LegalDocsBtn:hover {
+            border: 3px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+            font-weight: bold;
+        }
+
+        #AboutBtn:hover {
+            border: 3px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+            font-weight: bold;
+        }
+
+        #HelpBtn:hover {
+            border: 3px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+            font-weight: bold;
+        }
+
+        #SignOutBtn:hover {
+            border: 3px solid #444;
+            background-color: #f8f8f8;
+            color: #444;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function ToHistory() {
+            window.location = "History.html";
+        }
+
+        function ToSettings() {
+            window.location = "Settings.html";
+        }
+
+        function ToLegalDocs() {
+            window.location = "LegalDocsInMenu.html";
+        }
+
+        function ToHelp() {
+            window.location = "Help.html";
+        }
+
+        function ToSignOut() {
+            window.location = "index.html";
+        }
+
+        function goToHome() {
+            window.location = "OwnerHome.html";
+        }
+
+        function goToMenu() {
+            window.location = "Menu.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="list list-inset">
+        <label class="item item-input">
+            <span class="input-label icon-left ion-person"></span>
+            <span class="input-label"></span>
+        </label>
+        <button class="button button-block icon-right ion-folder button-dark" id="HistoryBtn" onclick="ToHistory()">
+            History
+        </button>
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-gear-a button-dark" id="SettingsBtn" onclick="ToSettings()">
+            Settings
+        </button>
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-briefcase button-dark" id="LegalDocsBtn" onclick="ToLegalDocs()">
+            Legal Documentation
+        </button>
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-help-circled button-dark" id="HelpBtn" onclick="ToHelp()">
+            Help
+        </button>
+    </div>
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-log-out button-dark" id="SignOutBtn" onclick="ToSignOut()">
+            Sign Out
+        </button>
+    </div>
+    <div class="tabs-striped tabs-color-dark">
+        <div class="tabs">
+            <a class="tab-item active">
+                <i class="icon ion-navicon-round" onclick="goToMenu()"></i>
+            </a>
+            <a class="tab-item">
+                <i class="icon ion-home" onclick="goToHome()"></i>
+            </a>
+        </div>
+    </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+        <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

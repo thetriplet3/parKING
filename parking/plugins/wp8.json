@@ -1,0 +1,30 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "{f8d94680-9a57-11e6-ad0c-89a155bdea81}"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "{f8d94680-9a57-11e6-ad0c-89a155bdea81}"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "{f8d94680-9a57-11e6-ad0c-89a155bdea81}"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "{f8d94680-9a57-11e6-ad0c-89a155bdea81}"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "{f8d94680-9a57-11e6-ad0c-89a155bdea81}"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "{f8d94680-9a57-11e6-ad0c-89a155bdea81}"
+        }
+    },
+    "dependent_plugins": {}
+}

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
+    <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <title>GetStartedScreen</title>
+
+    <style>
+
+    </style>
+
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="bar bar-header bar-positive">
+        <h3 class="title">Getting Started with ParkIn</h3>
+    </div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide>
+            <div class="box blue"><h1>BLUE</h1></div>
+        </ion-slide>
+        <ion-slide>
+            <div class="box yellow"><h1>YELLOW</h1></div>
+        </ion-slide>
+        <ion-slide>
+            <div class="box pink"><h1>PINK</h1></div>
+        </ion-slide>
+    </ion-slide-box>
+    <div class="list list-inset">
+        <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="GoBack()">
+            Back
+        </button>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>
