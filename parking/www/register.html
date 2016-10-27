@@ -38,6 +38,13 @@
         }
     </style>    
 
+    <script>
+        function saveUser() {
+            var returnvalue = connect(1, "user_info", "user_info");
+           // getColumnValue(returnvalue, "email");
+        }
+    </script>
+
     <script type="text/javascript" charset="utf-8">
 
         function validateForm() {
@@ -125,57 +132,62 @@
     <div class="list list-inset">
         <h3 class="title ion-person-add">   Personal Details</h3>
     </div>
-    <div class="list list-inset" id="indexRegAcc">
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">First Name</span>
-                <input type="text" placeholder="John" id="fname">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Last Name</span>
-                <input type="text" placeholder="Smith" id="lname">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Mobile (+94)</span>
-                <input type="text" placeholder="07XXXXXXXX" id="mob">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">NIC</span>
-                <input type="text" placeholder="012345678v" id="nic">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Email</span>
-                <input type="email" placeholder="name@example.com" id="email">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password" placeholder="Minimum 5 characters" id="pwrd">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input item-select">
-                <div class="input-label" id="utype">
-                    User Type
+        <form>
+            <div id="user_info">
+                <div class="list list-inset" id="indexRegAcc">
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">First Name</span>
+                            <input type="text" placeholder="John" id="firstname">
+                        </label>
+                    </div>
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">Last Name</span>
+                            <input type="text" placeholder="Smith" id="lastname">
+                        </label>
+                    </div>
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">Mobile (+94)</span>
+                            <input type="text" placeholder="07XXXXXXXX" id="mobileNo">
+                        </label>
+                    </div>
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">NIC</span>
+                            <input type="text" placeholder="012345678v" id="nic">
+                        </label>
+                    </div>
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">Email</span>
+                            <input type="email" placeholder="name@example.com" id="email">
+                        </label>
+                    </div>
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">Password</span>
+                            <input type="password" placeholder="Minimum 5 characters" id="password">
+                        </label>
+                    </div>
+                    <div class="list list-inset">
+                        <label class="item item-input item-select">
+                            <div class="input-label" id="utype">
+                                User Type
+                            </div>
+                            <select id="type">
+                                <option selected value="RegularUser">Regular User</option>
+                                <option>Owner</option>
+                            </select>
+                        </label>
+                    </div>
+
                 </div>
-                <select>
-                    <option selected>Regular User</option>
-                    <option>Owner</option>
-                </select>
-            </label>
-        </div>
-    </div>
+            </div>
+        </form>
         <div class="list list-inset">
-            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="validateForm()">
+            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="saveUser()">
                 Next
             </a>
 
@@ -189,7 +201,7 @@
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
         <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
-        <script type="text/javascript" src="scripts/db.js"></script>
         <script type="text/javascript" src="scripts/jq.js"></script>
+        <script type="text/javascript" src="scripts/db.js"></script>
 </body>
 </html>
