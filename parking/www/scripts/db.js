@@ -19,6 +19,7 @@
             }
         });
     }
+    console.log(string);
     return string;
 }
 
@@ -62,4 +63,17 @@ function getColumnValue(data, col) {
 function getTimestamp() {
     var sysdate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + (1900 + d.getYear()) + " 00:00:00";
     return sysdate;
+}
+
+function saveToPhone(key, data) {
+    window.localStorage.setItem(key, data);
+}
+
+function getFromPhone(key) {
+    return window.localStorage.getItem(key);
+}
+
+function getCurrentUser(column) {
+    var ustring = getFromPhone("currentUser");
+    return getColumnValue(ustring, column);
 }

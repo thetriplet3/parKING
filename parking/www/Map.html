@@ -41,7 +41,7 @@
             geocoder = new google.maps.Geocoder;
             infowindow = new google.maps.InfoWindow;
         }
-        function addMarker(location) {
+        function addMarker(location, title) {
             //var name = prompt("Please name your location : ")
             var marker = new google.maps.Marker({
                 position: location,
@@ -104,9 +104,10 @@
         }
 
         function handleData(data) {
+            var string = JSON.stringify(data);
             console.log(data);
             $.each(data, function (key, val) {
-                console.log(val.latitude);
+                console.log(key + " - "  + val.latitude);
                 var latLng = { lat: val.latitude, lng: val.longitude }
                 addMarker(latLng);
             });

@@ -12,6 +12,8 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
     <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jq.js"></script>
+    <script type="text/javascript" src="scripts/db.js"></script>
     <title>SignInScreen</title>
 
     <style>
@@ -72,7 +74,26 @@
         }
 
         function callUserHome() {
-           window.location = "regUserHome.html";
+            
+            var response = connect(0, "user_info", "user_info");
+            console.log("Respone : " + response);
+            if (response == null || response == "[]") {
+                alert("Username/Password incorrect. Please try again!");
+            }
+            else {
+                var type = getColumnValue(response, "type");
+                saveToPhone("currentUser", response);
+                
+                if(type == "Owner")
+                {
+                    window.location = "OwnerHome.html"
+                }
+                else {
+                    window.location = "regUserHome.html";
+                }
+            }
+            
+           //window.location = "regUserHome.html";
           //  window.location = "testxxx.html";
 
         }
@@ -84,17 +105,17 @@
     <div class="list list-inset">
         <h3>Sign In</h3>
     </div>
-        <div class="list list-inset" id="indexSignIn">
+        <div class="list list-inset" id="user_info">
             <div class="list list-inset">
                 <label class="item item-input">
                     <span class="input-label ion-at"></span>
-                    <input type="text" placeholder="Email address" id="signInEmail">
+                    <input type="text" placeholder="Email address" id="email">
                 </label>
             </div>
             <div class="list list-inset">
                 <label class="item item-input">
                     <span class="input-label ion-locked"></span>
-                    <input type="password" placeholder="Password" id="signInPwd">
+                    <input type="password" placeholder="Password" id="password">
                 </label>
             </div>
         </div>
