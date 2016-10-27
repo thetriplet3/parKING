@@ -68,6 +68,7 @@
                     else {
                         window.alert('Geocoder failed due to: ' + status);
                     }
+                   
                 })
                 $("#addLocation").load("views/addLocation.html");
                 console.log(marker.getPlace());
@@ -118,4 +119,6 @@
         $("#latitude").val(coord.lat());
         $("#longitude").val(coord.lng());
     }
+
+
 </script>

@@ -41,7 +41,7 @@
     <script type="text/javascript" charset="utf-8">
 
         function validateForm() {
-                var x = document.getElementById("fname").value;
+                /*var x = document.getElementById("fname").value;
                    if (x == null || x == "" ) {
                        alert("First Name must be filled out");
                        return false;
@@ -108,10 +108,10 @@
 
             document.cookie = document.getElementById("email").value;
 
-            var xy = document.getElementById("utype");
-           
-           
-            
+            var xy = document.getElementById("utype");*/
+            var xx = document.getElementById("email").value;
+            localStorage.setItem('selected',xx );
+          //  document.cookie = document.getElementById("email").value;
             window.location = "paymentInfo.html";
         }
 
@@ -189,5 +189,7 @@
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
         <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/db.js"></script>
+        <script type="text/javascript" src="scripts/jq.js"></script>
 </body>
 </html>

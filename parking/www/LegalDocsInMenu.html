@@ -73,7 +73,13 @@
         }
 
         function GoBack() {
-            window.location = "Menu.html";
+            var selected = localStorage.getItem('selected');
+            if (selected == 1) {
+                window.location = "MenuToRegUser.html";
+            }
+            else {
+                window.location = "Menu.html";
+            }
         }
     </script>
 </head>

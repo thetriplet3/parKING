@@ -57,7 +57,7 @@
                 alert(" name Can only contain A-Z");
                 return false;
             }
-            var x = document.getElementById("numslot").value;
+            var x = document.getElementById("slots").value;
             if (x == null || x == "") {
                 alert("number of slots should be filled out");
                 return false;
@@ -71,19 +71,24 @@
                 alert("Address should be filled out");
                 return false;
             }
-            var x = document.getElementById("desc").value;
+            var x = document.getElementById("description").value;
             if (x == null || x == "") {
                 alert("description should be filled out");
                 return false;
             }
-
-            window.location = "OwnerHome.html";
+            var selected = localStorage.getItem('selected');
+            alert(selected);
+          //  var cookie = document.cookie;
+         //   alert(cookie);
+           window.location = "OwnerHome.html";
 
         }
 
         function GoBack() {
             window.location = "paymentInfo.html";
         }
+
+   
     </script>
 
 </head>
@@ -91,32 +96,36 @@
     <div class="list list-inset">
         <h3 class="title ion-model-s">  Register Parking Lot</h3>
     </div>
-    <div class="list list-inset" id="regParkLot">
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Name</span>
-                <input type="text" placeholder="JohnSmith Parking" id="name">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Number of Slots</span>
-                <input type="text" placeholder="00" id="numslot">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Address</span>
-                <input type="text" placeholder="No.1,Park Rd,Colombo 5" id="add">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <span class="input-label">Description</span>
-                <input type="text" placeholder="Description goes here..." id="desc">
-            </label>
+    <div id="lot">
+        <input type="text" id="email" />
+        <div class="list list-inset" id="regParkLot">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text" placeholder="JohnSmith Parking" id="name">
+                </label>
+            </div>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">Number of Slots</span>
+                    <input type="text" placeholder="00" id="slots">
+                </label>
+            </div>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">Address</span>
+                    <input type="text" placeholder="No.1,Park Rd,Colombo 5" id="add">
+                </label>
+            </div>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">Description</span>
+                    <input type="text" placeholder="Description goes here..." id="description">
+                </label>
+            </div>
         </div>
     </div>
+
         <div class="list list-inset">
             <p class="center">
                 By creating a ParkIn lot, you agree to the <br>
