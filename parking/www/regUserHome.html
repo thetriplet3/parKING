@@ -121,19 +121,23 @@
             geocoder = new google.maps.Geocoder;
             infowindow = new google.maps.InfoWindow;
         }
-        function addMarker(location) {
+        function addMarker(location, id) {
             //var name = prompt("Please name your location : ")
             var marker = new google.maps.Marker({
                 position: location,
                 map: map,
-                title: name
+                title: id
             });
             markers.push(marker);
-
+            var dat = $.parseJSON(getData(marker.getTitle()));
+            console.log(dat);
             marker.addListener('click', function () {
                 //map.setZoom(map.getZoom() + 2);
                 //map.setCenter(marker.getPosition());
-                $("#addLocation").load("views/addLocation.html")
+                window.localStorage.setItem("marker", JSON.stringify(dat));
+                window.location = "NormalReservation.html";
+                //var getData = $.parseJSON(getData(marker.getTitle()));
+                //$("#addLocation").load("views/addLocation.html")
                 geocoder.geocode({ location: location }, function (results, status) {
                     if (status === 'OK') {
                         if (results[0]) {
@@ -165,7 +169,7 @@
 
         function loadAll() {
             $.ajax({
-                url: "http://abstellen.southeastasia.cloudapp.azure.com/abstellen/location_tab/handle.php",
+                url: "http://abstellen.southeastasia.cloudapp.azure.com/abstellen/lot/handle.php",
                 type: "POST",
                 data: {
                     attr: "",
@@ -183,13 +187,22 @@
         }
 
         function handleData(data) {
-            console.log(data);
+            var k = "";
+            var string = JSON.stringify(data);
             $.each(data, function (key, val) {
-                console.log(val.latitude);
-                var latLng = { lat: val.latitude, lng: val.longitude }
-                addMarker(latLng);
+                //console.log(data[key]);
+                k = "k" + key;
+                console.log(val.latitude + "-" + val.longitude);
+                window.localStorage.setItem(k, JSON.stringify(data[key]));
+                var latLng = { lat: val.latitude, lng: val.longitude };
+                addMarker(latLng, k);
                
             });
+            
+        }
+
+        function getData(id) {
+            return window.localStorage.getItem(id);
         }
     }
 

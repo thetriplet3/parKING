@@ -58,3 +58,8 @@ function getColumnValue(data, col) {
     console.log(columnVal);
     return columnVal;
 }
+
+function getTimestamp() {
+    var sysdate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + (1900 + d.getYear()) + " 00:00:00";
+    return sysdate;
+}
