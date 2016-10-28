@@ -138,9 +138,14 @@
         function gotoQR() {
             window.location = "codes.html"
         }
+
+        function generateQR() {
+            var qrcode = new QRCode(document.getElementById("qrcode"), { width: 100, height: 100 });
+            qrcode.makeCode(getCurrentUser("email"));
+        }
     </script>
 </head>
-<body>
+<body onload="generateQR()">
     <div class="list list-inset">
         <label class="item item-input">
             <span class="input-label icon-left ion-person"></span>
@@ -176,9 +181,7 @@
         </button>
     </div>
     <div class="list list-inset">
-        <button class="button button-block icon-right ion-log-out button-dark" id="generateQR" onclick="gotoQR()">
-            Generate QR CODE
-        </button>
+        <div id="qrcode"></div>
     </div>
 
 

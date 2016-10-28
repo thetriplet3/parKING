@@ -116,6 +116,7 @@
 
                     function (result) {
                         document.getElementById("barcode").value = result.text;
+
                         if(!result.cancelled)
                         {
                             if(result.format == "QR_CODE")
