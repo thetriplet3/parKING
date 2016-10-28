@@ -84,14 +84,14 @@
     <div class="list list-inset">
     </div>
     <div class="list list-inset">
-        <a target="_blank" href="javascript:scan();" style="text-decoration: none">
+        <a target="_blank" href="javascript:scan(1);" style="text-decoration: none">
             <button class="button button-block icon-right ion-arrow-right-c button-positive" id="CheckInBtn" onclick="checkIn()">
                 Check In
             </button>
         </a>
     </div>
     <div class="list list-inset">
-        <a target="_blank" href="javascript:scan();" style="text-decoration: none">
+        <a target="_blank" href="javascript:scan(2);" style="text-decoration: none">
             <button class="button button-block icon-right ion-arrow-left-c button-positive" id="CheckOutBtn" onclick="checkOut()">
                 Check Out
             </button>
@@ -102,6 +102,11 @@
             Back
         </button>
     </div>
+    <div id="reservation">
+        <input type="hidden" id="email" /><input type="hidden" id="lotid" />
+        <input type="hidden" id="type" value="OnSite" /><input type="hidden" id="res_date" />
+        <input type="hidden" id="checkin" /><input type="hidden" id="checkout" />
+    </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script src="bower_components/ionic/js/ionic.bundle.js"></script>
@@ -109,9 +114,30 @@
     <script type="text/javascript" src="scripts/index.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="scripts/db.js"></script>
     <script>
-            function scan()
+            function scan(id)
             {
+                var date = getTimestamp();
+                var time = getCurrentTime();
+                var email = getCurrentUser("email");
+
+                $('#email').val(email);
+
+                var dat = connect(3, "reservation", "reservation")
+                $('#lotid').val(dat);
+                $('#res_date').val(date);
+                $('#checkin').val(time);
+                $('#checkout').val(time);
+                
+                if (id == 1) {
+                    $('#checkout').val("");
+                }
+
+                else {
+                    $('#checkin').val("");
+                }
+
                 cordova.plugins.barcodeScanner.scan(
 
                     function (result) {
@@ -131,8 +157,12 @@
                                     data[data.length] = [name, value];
 
                                     localStorage.setItem("LocalData", JSON.stringify(data));
-
+                                    //var dat = connect(1, "reservation", "reservation");
                                     alert("Done");
+
+                                    if (id == 2) {
+                                        alert("Your cost is Rs.50");
+                                    }
                                 });
                             }
                         }

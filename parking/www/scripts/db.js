@@ -72,8 +72,15 @@ function getColumnValue(data, col) {
 }
 
 function getTimestamp() {
-    var sysdate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + (1900 + d.getYear()) + " 00:00:00";
+    var d = new Date();
+    var sysdate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + (1900 + d.getYear());
     return sysdate;
+}
+
+function getCurrentTime() {
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    return time;
 }
 
 function saveToPhone(key, data) {
