@@ -38,74 +38,59 @@
         }
     </style>    
 
-    <script>
-        function saveUser() {
-            var returnvalue = connect(1, "user_info", "user_info");
-        }
-    </script>
-
     <script type="text/javascript" charset="utf-8">
 
+        function saveUser() {
+            var returnvalue = connect(1, "user_info", "user_info");
+            window.location = "paymentInfo.html";
+            return returnvalue;
+        }
+
         function validateForm() {
-            var x = document.getElementById("firstname").value;
-                   if (x == null || x == "" ) {
+            var fn = document.getElementById("firstname").value;
+            var ln = document.getElementById("lastname").value;
+            var nic = document.getElementById("nic").value;
+            var mn = document.getElementById("mobileNo").value;
+            var ml = document.getElementById("email").value;
+            var pass = document.getElementById("password").value;
+
+                   if (fn == null || fn == "" ) {
                        alert("First Name must be filled out");
                        return false;
-                   }
-                   if ((/^[A-Za-z\s]+$/.test(x) == false)) {
+                   }else if ((/^[A-Za-z\s]+$/.test(fn) == false)) {
                        alert("Can only contain A-Z");
                        return false;
-                   }
-                   var x = document.getElementById("lastname").value;
-                   if (x == null || x == "" ) {
+                   }else if (ln == null || ln == "" ) {
                        alert("Last Name must be filled out");
                        return false;
-                   }
-                   if ((/^[A-Za-z\s]+$/.test(x) == false)) {
+                   }else if ((/^[A-Za-z\s]+$/.test(ln) == false)) {
                        alert("Can only contain A-Z");
                        return false;
-                   }
-                   var x = document.getElementById("nic").value;
-                   if (x == null || x == "") {
+                   }else if (nic == null || nic == "") {
                        alert("NIC must be filled out");
                        return false;
-                   }
-                   if (/^[0-9]{9}[vVxX]$/.test(x) == false) {
+                   }else if (/^[0-9]{9}[vVxX]$/.test(nic) == false) {
                        alert("Nic number is not valid");
                        return false;
-                   }
-                   var x = document.getElementById("mobileNo").value;
-                   if (x == null || x == "") {
+                   }else if (mn == null || mn == "") {
                        alert("Mobile Number must be filled out");
                        return false;
-                   }
-                   //  var phoneno = /^\d{10}$/;
-
-                   if (/^\d{10}$/.test(x) == false) {
+                   }else if (/^\d{10}$/.test(mn) == false) {
                        alert("mobilenumber cannot contain letters");
                        return false;
-                   }
-                   var x = document.getElementById("email").value;
-                   if (x == null || x == "") {
+                   }else if (ml == null || ml == "") {
                        alert("Email must be filled out");
                        return false;
-                   }
-
-
-                   if ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(x))==false) {
+                   }else if ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(ml))==false) {
                        alert("You have entered an invalid email address!");
                        return false;
-                   }
-
-
-                   var x = document.getElementById("password").value;
-                   if (x == null || x == "") {
+                   }else if (pass == null || pass == "") {
                        alert("Password must be filled out");
                        return false;
-                   }
-
-                   if ((/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,15}$/.test(x)) == false) {
+                   } else if ((/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,15}$/.test(pass)) == false) {
                        alert("enter a password which has atleast 5 characters and a special and numeric")
+                       return false;
+                   } else {
                        return true;
                    }
             //document.cookie = "selected=john"
@@ -113,11 +98,21 @@
 
             document.cookie = document.getElementById("email").value;
 
-            var xy = document.getElementById("utype");
-            var xx = document.getElementById("email").value;
-            localStorage.setItem('selected', xx);
+            //var xy = document.getElementById("utype");
+            //var xx = document.getElementById("email").value;
+            //localStorage.setItem('selected', xx);
             //document.cookie = document.getElementById("email").value;
-            window.location = "paymentInfo.html";
+            
+        }
+
+        function ifValid() {
+            var iv = validateForm();
+            if (iv == true) {
+                window.localStorage.setItem("mail", document.getElementById("uemail").value);
+                window.localStorage.setItem("type", document.getElementById("utype").value);
+                saveUser();
+                
+            }
         }
 
         function BackToSignIn() {
@@ -126,7 +121,7 @@
     </script>
 </head>
 <body>
-    <form action="paymentInfo.html" id="GET">
+    <form  id="GET">
     <div class="list list-inset">
         <h3 class="title ion-person-add">   Personal Details</h3>
     </div>
@@ -185,7 +180,7 @@
             </div>
         </form>
         <div class="list list-inset">
-            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="saveUser()">
+            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="ifValid()">
                 Next
             </a>
 
