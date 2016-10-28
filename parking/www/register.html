@@ -40,11 +40,7 @@
 
     <script type="text/javascript" charset="utf-8">
 
-        function saveUser() {
-            var returnvalue = connect(1, "user_info", "user_info");
-            window.location = "paymentInfo.html";
-            return returnvalue;
-        }
+        
 
         function validateForm() {
             var fn = document.getElementById("firstname").value;
@@ -88,7 +84,7 @@
                        alert("Password must be filled out");
                        return false;
                    } else if ((/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,15}$/.test(pass)) == false) {
-                       alert("enter a password which has atleast 5 characters and a special and numeric")
+                       alert("enter a password which has atleast 5 characters and a special and numeric");
                        return false;
                    } else {
                        return true;
@@ -96,7 +92,7 @@
             //document.cookie = "selected=john"
             //document.cookie2 = document.getElementById("utype").value;
 
-            document.cookie = document.getElementById("email").value;
+            //document.cookie = document.getElementById("email").value;
 
             //var xy = document.getElementById("utype");
             //var xx = document.getElementById("email").value;
@@ -108,11 +104,22 @@
         function ifValid() {
             var iv = validateForm();
             if (iv == true) {
-                window.localStorage.setItem("mail", document.getElementById("uemail").value);
-                window.localStorage.setItem("type", document.getElementById("utype").value);
+                //window.localStorage.setItem("mail", document.getElementById("uemail").value);
+                //window.localStorage.setItem("type", document.getElementById("utype").value);
                 saveUser();
-                
+            } else {
+                alert("Please try again");
             }
+        }
+
+        function saveUser() {
+            var returnvalue = connect(1, "user_info", "user_info");
+            openPayment();
+            return returnvalue;
+        }
+
+        function openPayment() {
+            window.location = "paymentInfo.html";
         }
 
         function BackToSignIn() {
@@ -121,7 +128,6 @@
     </script>
 </head>
 <body>
-    <form  id="GET">
     <div class="list list-inset">
         <h3 class="title ion-person-add">   Personal Details</h3>
     </div>
@@ -180,7 +186,7 @@
             </div>
         </form>
         <div class="list list-inset">
-            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="ifValid()">
+            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="saveUser()">
                 Next
             </a>
 
@@ -188,7 +194,6 @@
                 Back
             </button>
         </div>
-        </form>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
