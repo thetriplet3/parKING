@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
+    <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <title>RegisterParkingLotScreen</title>
+
+    <style>
+        h3 {
+            text-align: center;
+        }
+
+        #RegisterParkLotBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        #BackBtn:hover {
+            border: 3px solid #387ef5;
+            background-color: #fff;
+            color: #387ef5;
+            font-weight: bold;
+        }
+
+        .item:hover {
+            border: 1px solid #387ef5;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a:hover {
+            color: #6ea0f7;
+        }
+    </style>
+
+    <script>
+        /*function OwnHome() {
+            var x = document.getElementById("name").value;
+            if (x == null || x == "") {
+                alert("name should be filled out");
+                return false;
+            }
+            if ((/^[A-Za-z\s]+$/.test(x) == false)) {
+                alert(" name Can only contain A-Z");
+                return false;
+            }
+            var x = document.getElementById("slots").value;
+            if (x == null || x == "") {
+                alert("number of slots should be filled out");
+                return false;
+            }
+            if (isNaN(x)) {
+                alert("number of slots should be digits");
+                return false;
+            }
+            var x = document.getElementById("add").value;
+            if (x == null || x == "") {
+                alert("Address should be filled out");
+                return false;
+            }
+            var x = document.getElementById("description").value;
+            if (x == null || x == "") {
+                alert("description should be filled out");
+                return false;
+            }
+            var selected = localStorage.getItem('selected');
+            alert(selected);
+            var em = window.localStorage.getItem(uemail);
+            var ut = window.localStorage.getItem(ust);
+            alert("email : " + em);
+            alert("type  : " + ut);
+            var res = connect(1, "lot", "lot");
+            window.location = "OwnerHome.html";
+
+        }*/
+
+        function validate() {
+            var nm = document.getElementById("name").value;
+            if (nm == null || nm == "") {
+                alert("name should be filled out");
+                return false;
+            }
+            if ((/^[A-Za-z\s]+$/.test(nm) == false)) {
+                alert(" name Can only contain A-Z");
+                return false;
+            }
+
+            var ns = document.getElementById("slots").value;
+            if (ns == null || ns == "") {
+                alert("number of slots should be filled out");
+                return false;
+            }
+            if (isNaN(ns)) {
+                alert("number of slots should be digits");
+                return false;
+            }
+
+            var add = document.getElementById("add").value;
+            if (add == null || add == "") {
+                alert("Address should be filled out");
+                return false;
+            }
+
+            var des = document.getElementById("description").value;
+            if (des == null || des == "") {
+                alert("description should be filled out");
+                return false;
+            }
+            var em = window.localStorage.getItem("uemail");
+            var ut = window.localStorage.getItem("ust");
+            document.getElementById("email").value = em;
+            alert("type  : " + ut);
+            var res = connect(1, "lot", "lot");
+            if (ut == "RegularUser") {
+                window.location = "regUserHome.html";
+            } else {
+                window.location = "OwnerHome.html";
+            }
+        }
+
+        function GoBack() {
+            window.location = "paymentInfo.html";
+        }
+
+        function saveLot() {
+            
+            document.getElementById("email").value = em;
+            var res = connect(1, "lot", "lot");
+            window.location = "OwnerHome.html";
+        }
+
+    </script>
+</head>
+<body>
+    <div class="list list-inset">
+        <h3 class="title ion-model-s">  Register Parking Lot</h3>
+    </div>
+
+    <div id="lot">
+    <form>
+        <input type="hidden" id="email" />
+        <input type="hidden" id="longitude" value="55.5" />
+        <input type="hidden" id="latitude" value="73.1" />
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <input type="text" placeholder="JohnSmith Parking" id="name">
+            </label>
+        </div>
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Number of Slots</span>
+                <input type="text" placeholder="00" id="slots">
+            </label>
+        </div>
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Address</span>
+                <input type="text" placeholder="No.1,Park Rd,Colombo 5" id="add">
+            </label>
+        </div>
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">Description</span>
+                <input type="text" placeholder="Description goes here..." id="description">
+            </label>
+        </div>
+    </form>
+    </div>
+
+   <div class="list list-inset">
+    <p class="center">
+        By creating a ParkIn lot, you agree to the <br>
+        <a href="LegalDocs.html">Terms & Conditions and Privacy Policy</a>
+    </p>
+    </div>
+
+    <div class="list list-inset">
+        <button class="button button-block icon-right ion-checkmark-circled button-positive" id="RegisterParkLotBtn" onclick="validate()">Register</button>
+    </div>
+
+    <div class="list list-inset">
+        <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="GoBack()">Back</button>
+    </div>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/jq.js"></script>
+    <script type="text/javascript" src="scripts/db.js"></script>
+</body>
+</html>

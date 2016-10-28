@@ -78,17 +78,32 @@
             }
             var selected = localStorage.getItem('selected');
             alert(selected);
-          //  var cookie = document.cookie;
-         //   alert(cookie);
-           window.location = "OwnerHome.html";
+            var em = window.localStorage.getItem(uemail);
+            var ut = window.localStorage.getItem(ust);
+            alert("email : " + em);
+            alert("type  : " + ut);
+            var res = connect(1, "lot", "lot");
+            window.location = "OwnerHome.html";
 
         }
 
         function GoBack() {
             window.location = "paymentInfo.html";
         }
+    </script>
 
-   
+    <script>
+
+
+        function saveLot() {
+            var em = window.localStorage.getItem(uemail);
+            var ut = window.localStorage.getItem(ust);
+            alert("email : "+em);
+            alert("type  : "+ut);
+            document.getElementById("email").value = em;
+            var res = connect(1, "lot", "lot");
+            window.location = "OwnerHome.html";
+        }
     </script>
 
 </head>
@@ -96,8 +111,12 @@
     <div class="list list-inset">
         <h3 class="title ion-model-s">  Register Parking Lot</h3>
     </div>
+
     <div id="lot">
-        <input type="text" id="email" />
+    <form>
+        <input type="hidden" id="email" />
+        <input type="hidden" id="longitude" value="55.5"/>
+        <input type="hidden" id="latitude" value="73.1" />
         <div class="list list-inset" id="regParkLot">
             <div class="list list-inset">
                 <label class="item item-input">
@@ -132,24 +151,33 @@
                 <a href="LegalDocs.html">Terms & Conditions and Privacy Policy</a>
             </p>
         </div>
-        <div class="list list-inset">
+
+        <!--<div class="list list-inset">
             <button class="button button-block icon-right ion-checkmark-circled button-positive" id="RegisterParkLotBtn" onclick="OwnHome()">
                 Register
             </button>
+        </div>-->
+        <div class="list list-inset">
+            <button class="button-block icon-right ion-checkmark-circled button-positive" onclick="OwnHome()"></button>
         </div>
+
         <div class="list list-inset">
         </div>
         <div class="list list-inset">
         </div>
+
         <div class="list list-inset">
             <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="GoBack()">
                 Back
             </button>
         </div>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
         <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/jq.js"></script>
+        <script type="text/javascript" src="scripts/db.js"></script>
 </body>
 </html>

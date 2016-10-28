@@ -50,7 +50,8 @@
             var ml = document.getElementById("email").value;
             var pass = document.getElementById("password").value;
 
-                   if (fn == null || fn == "" ) {
+            
+                   /*if (fn == null || fn == "" ) {
                        alert("First Name must be filled out");
                        return false;
                    }else if ((/^[A-Za-z\s]+$/.test(fn) == false)) {
@@ -88,7 +89,68 @@
                        return false;
                    } else {
                        return true;
-                   }
+                   }*/
+
+            var x = document.getElementById("fname").value;
+            if (x == null || x == "" ) {
+                alert("First Name must be filled out");
+                return false;
+            }
+            if ((/^[A-Za-z\s]+$/.test(x) == false)) {
+                alert("Can only contain A-Z");
+                return false;
+            }
+            var x = document.getElementById("lname").value;
+            if (x == null || x == "" ) {
+                alert("Last Name must be filled out");
+                return false;
+            }
+            if ((/^[A-Za-z\s]+$/.test(x) == false)) {
+                alert("Can only contain A-Z");
+                return false;
+            }
+            var x = document.getElementById("nic").value;
+            if (x == null || x == "") {
+                alert("NIC must be filled out");
+                return false;
+            }
+            var x = document.getElementById("mob").value;
+            if (x == null || x == "") {
+                alert("Mobile Number must be filled out");
+                return false;
+            }
+            //  var phoneno = /^\d{10}$/;
+
+            if (/^\d{10}$/.test(x) == false) {
+                alert("mobilenumber cannot contain letters");
+                return false;
+            }
+            var x = document.getElementById("email").value;
+            if (x == null || x == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+
+
+            if ((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(x))==false) {
+                alert("You have entered an invalid email address!")
+                return (false)
+            }
+
+
+            var x = document.getElementById("pwrd").value;
+            if (x == null || x == "") {
+                alert("Password must be filled out");
+                return false;
+            }
+
+            if ((/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,15}$/.test(x)) == false) {
+                alert("enter a password which has atleast 5 characters and a special and numeric")
+                return false;
+            }
+            
+            saveUser();
+
             //document.cookie = "selected=john"
             //document.cookie2 = document.getElementById("utype").value;
 
@@ -106,6 +168,8 @@
             if (iv == true) {
                 //window.localStorage.setItem("mail", document.getElementById("uemail").value);
                 //window.localStorage.setItem("type", document.getElementById("utype").value);
+                //var ss = document.getElementById("email").value;
+                //document.cookie = ss;
                 saveUser();
             } else {
                 alert("Please try again");
@@ -113,6 +177,10 @@
         }
 
         function saveUser() {
+            var emm = document.getElementById("email").value;
+            var utt = document.getElementById("type").value;
+            window.localStorage.setItem("uemail", emm);
+            window.localStorage.setItem("ust", utt);
             var returnvalue = connect(1, "user_info", "user_info");
             openPayment();
             return returnvalue;
@@ -181,19 +249,18 @@
                             </select>
                         </label>
                     </div>
+                    <div class="list list-inset">
+                        <buton class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="saveUser()">
+                            Next
+                        </buton>
 
+                        <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="BackToSignIn()">
+                            Back
+                        </button>
+                    </div>
                 </div>
             </div>
-        </form>
-        <div class="list list-inset">
-            <a class="button button-block icon-right ion-arrow-right-c button-positive" id="RegNextBtn" onclick="saveUser()">
-                Next
-            </a>
-
-            <button class="button button-block icon-left ion-arrow-left-c button-positive" id="BackBtn" onclick="BackToSignIn()">
-                Back
-            </button>
-        </div>
+        
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
