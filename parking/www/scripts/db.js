@@ -14,8 +14,11 @@
             dataType: 'json',
             success: function (data) {
                 string = JSON.stringify(data);
+                console.log(data);
             },
             error: function (data) {
+                string = JSON.stringify(data);
+                console.log(data);
             }
         });
     }
@@ -42,6 +45,14 @@ function setAttr(div) {
             //val = "-X0xd";
         }
         else {
+            if ($(this).attr('type') == "time") {
+                val = val + ":00"
+            }
+            else if ($(this).attr('type') == "date") {
+                val = val.replace(/-/g, "\/");
+                val = val.split("\/");
+                val = val[2] + "\/" + val[1] + "\/" + val[0];
+            }
             col = $(this).attr('id');
             attr = attr + col + '<>' + val + '|';
         }

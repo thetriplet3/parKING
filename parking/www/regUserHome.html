@@ -107,12 +107,12 @@
             var myLatlng = new google.maps.LatLng(slat, slng);
             var mapOptions = { zoom: 10, center: myLatlng };
             map = new google.maps.Map(document.getElementById('mapContainer'), mapOptions);
+            loadAll();
             initmarker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
                 title: 'Home'
             });
-            loadAll();
             map.addListener('dblclick', function (event) {
                 loadLocation(event.latLng);
                 //addMarker(event.latLng, map);
@@ -128,9 +128,12 @@
                 map: map,
                 title: id
             });
+            console.log(marker.getPosition().lat());
+            console.log(marker.getPosition().lng());
             markers.push(marker);
             var dat = $.parseJSON(getData(marker.getTitle()));
-            console.log(dat);
+            //console.log(dat);
+
             marker.addListener('click', function () {
                 //map.setZoom(map.getZoom() + 2);
                 //map.setCenter(marker.getPosition());

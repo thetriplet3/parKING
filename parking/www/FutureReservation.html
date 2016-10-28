@@ -20,7 +20,8 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css" />
-
+    <script type="text/javascript" src="scripts/jq.js"></script>
+    <script type="text/javascript" src="scripts/db.js"></script>
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
 
@@ -55,23 +56,38 @@
 
     <script>
         function validateForm() {
-            var x = document.getElementById("dateRes").value;
+            var x = document.getElementById("res_date").value;
             if (x == null || x == "") {
                 alert("Date must be filled out");
                 return false;
             }
-            var x = document.getElementById("EnterTime").value;
+            var x = document.getElementById("checkin").value;
             if (x == null || x == "") {
                 alert("Entering time must be filled out");
                 return false;
             }
-            var x = document.getElementById("DepartTime").value;
+            var x = document.getElementById("checkout").value;
             if (x == null || x == "") {
                 alert("Departuring time must be filled out");
                 return false;
             }
-            window.location = "NormalReservation.html";
+            return true;
         }
+        function CheckIn() {
+            if (validateForm()) {
+                var email = getCurrentUser("email");
+                var dat = window.localStorage.getItem("marker");
+                var jsonDat = JSON.parse(dat);
+
+                console.log(email + " " + jsonDat.lotid);
+
+                $('#email').val(email);
+                $('#lotid').val(jsonDat.lotid);
+                connect(1, "reservation", "reservation");
+                alert("Reservation Added!");
+            }
+        }
+
         controller('MyCtrl', function ($scope, $ionicPopup) {
 
             $scope.showAlert = function () {
@@ -89,7 +105,13 @@
         })
 
         function goToHome() {
-            window.location = "OwnerHome.html";
+            var type = getCurrentUser("type");
+            if (type == "Owner") {
+                window.location = "OwnerHome.html";
+            }
+            else {
+                window.location = "regUserHome.html";
+            }
         }
 
         function goToMenu() {
@@ -117,28 +139,30 @@
     </div>
     <div class="list list-inset">
     </div>
-    <div class="list list-inset" id="futureRes">
+    <div class="list list-inset" id="reservation">
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Date</span>
-                <input type="date" id="dateRes">
+                <input type="date" id="res_date">
             </label>
         </div>
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Entering Time</span>
-                <input type="text" placeholder="HH:MM" id="EnterTime">
+                <input type="time" placeholder="HH:MM" id="checkin">
             </label>
         </div>
         <div class="list list-inset">
             <label class="item item-input">
                 <span class="input-label">Departing Time (Aprox)</span>
-                <input type="text" placeholder="HH:MM" id="DepartTime">
+                <input type="time" placeholder="HH:MM" id="checkout">
             </label>
         </div>
+        <input type="hidden" id="email"/><input type="hidden" id="lotid" />
+        <input type="hidden" id="type" value="Future"/><!--<input type="hidden" id="res_status" value="Pending"/>-->
     </div>
             <div class="list list-inset">
-                <button class="button button-block icon-right ion-checkmark-circled button-positive" id="reserveBtn" onclick="validateForm()">
+                <button class="button button-block icon-right ion-checkmark-circled button-positive" id="reserveBtn" onclick="CheckIn()">
                     Reserve
                 </button>
             </div>

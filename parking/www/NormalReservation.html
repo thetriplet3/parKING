@@ -56,7 +56,13 @@
 
     <script>
         function goToHome() {
-            window.location = "OwnerHome.html";
+            var type = getCurrentUser("type");
+            if (type == "Owner") {
+                window.location = "OwnerHome.html";
+            }
+            else {
+                window.location = "regUserHome.html";
+            }
         }
 
         function goToMenu() {

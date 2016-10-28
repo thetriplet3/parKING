@@ -78,7 +78,7 @@
             var response = connect(0, "user_info", "user_info");
             console.log("Respone : " + response);
             if (response == null || response == "[]") {
-                alert("Username/Password incorrect. Please try again!");
+                //alert("Username/Password incorrect. Please try again!");
             }
             else {
                 var type = getColumnValue(response, "type");
