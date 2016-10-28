@@ -105,7 +105,7 @@
 
             //Google Maps
             var myLatlng = new google.maps.LatLng(slat, slng);
-            var mapOptions = { zoom: 4, center: myLatlng };
+            var mapOptions = { zoom: 10, center: myLatlng };
             map = new google.maps.Map(document.getElementById('mapContainer'), mapOptions);
             initmarker = new google.maps.Marker({
                 position: myLatlng,
@@ -158,8 +158,8 @@
                 console.log(marker.getPosition().lat());
                 console.log(marker.getPosition().lng());
                 //infowindow.setContent('<div><strong>' + marker.getTitle() + '</strong></div>');
-                infowindow.setContent($("#locationDetails").prop("innerHTML"));
-                infowindow.open(map, this);
+                //infowindow.setContent($("#locationDetails").prop("innerHTML"));
+                //infowindow.open(map, this);
             });
         }
         function onError(error) {
@@ -203,6 +203,29 @@
 
         function getData(id) {
             return window.localStorage.getItem(id);
+        }
+
+        function showDirection(dest) {
+            directionsService = new google.maps.DirectionsService,
+            directionsDisplay = new google.maps.DirectionsRenderer({
+                map: map
+            });
+            console.log(initmarker.getTitle());
+            console.log(dest.getTitle());
+            directionsService.route({
+                origin: initmarker.getPosition(),
+                destination: dest.getPosition(),
+                avoidTolls: true,
+                avoidHighways: false,
+                travelMode: google.maps.TravelMode.DRIVING
+            },
+            function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
         }
     }
 
