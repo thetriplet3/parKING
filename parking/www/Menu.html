@@ -12,6 +12,10 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../Content/ionic.min.css">
     <link href="bower_components/ionic/css/ionic.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/GQR/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/GQR/qrcode.js"></script>
+
+
     <title>MenuScreen</title>
 
     <style>
@@ -60,6 +64,10 @@
             color: #444;
             font-weight: bold;
         }
+
+        #QR {
+            background-color : aqua;
+        }
     </style>
 
     <script>
@@ -90,11 +98,21 @@
         function goToMenu() {
             window.location = "Menu.html";
         }
+
+        function gotoQR() {
+            window.location = "codes.html"
+        }
+
+        function generateQR() {
+            var qrcode = new QRCode(document.getElementById("qrcode"), { width: 100, height: 100 });
+            qrcode.makeCode(getCurrentUser("email"));
+        }
+        
     </script>
 </head>
-<body>
+<body onload="generateQR()">
     <div class="list list-inset">
-        <label class="item item-input">
+        <label class="item item-input" id="user">
             <span class="input-label icon-left ion-person"></span>
             <span class="input-label"></span>
         </label>
@@ -122,6 +140,15 @@
             Sign Out
         </button>
     </div>
+    <div class="list list-inset">
+        <div id="qrcode"></div>
+    </div>
+    <!--<div class="list list-inset">
+        <button class="button button-block icon-right ion-log-out button-dark" id="generateQR" onclick="gotoQR()">
+            Generate QR CODE
+        </button>
+    </div>-->
+
     <div class="tabs-striped tabs-color-dark">
         <div class="tabs">
             <a class="tab-item active">
@@ -137,5 +164,7 @@
         <script src="bower_components/ionic/js/ionic.bundle.js"></script>
         <script type="text/javascript" src="../scripts/ionic.bundle.min.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/jq.js"></script>
+        <script type="text/javascript" src="scripts/db.js"></script>
 </body>
 </html>
