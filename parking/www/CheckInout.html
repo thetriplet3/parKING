@@ -142,7 +142,7 @@
 
                     function (result) {
                         document.getElementById("barcode").value = result.text;
-
+                        $('#email').val(result.text);
                         if(!result.cancelled)
                         {
                             if(result.format == "QR_CODE")
@@ -151,20 +151,25 @@
                                     var name = input.input1;
                                     var value = result.text;
 
-                                    var data = localStorage.getItem("LocalData");
-                                    console.log(data);
-                                    data = JSON.parse(data);
-                                    data[data.length] = [name, value];
+                                    //var data = localStorage.getItem("LocalData");
+                                    //console.log(data);
+                                    //data = JSON.parse(data);
+                                    //data[data.length] = [name, value];
 
-                                    localStorage.setItem("LocalData", JSON.stringify(data));
-                                    //var dat = connect(1, "reservation", "reservation");
+                                    //localStorage.setItem("LocalData", JSON.stringify(data));
+                                    if (id == 1) {
+                                        var dat = connect(1, "reservation", "reservation");
+                                    }
                                     alert("Done");
-
+                                    connect(4, "reservation", "reservation");
                                     if (id == 2) {
                                         alert("Your cost is Rs.50");
                                     }
                                 });
                             }
+                        }
+                        if (id == 2) {
+                            alert("Your cost is Rs.50");
                         }
                     },
                     function (error) {
